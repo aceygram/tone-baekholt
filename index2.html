@@ -1,58 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Skill Progress</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Sales Rep Site</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
+      font-family: 'Segoe UI', sans-serif;
       background: #000;
-      color: #e5d8cc;
-      font-family: sans-serif;
-      padding: 2rem;
+      color: white;
+      line-height: 1.5;
+      scroll-behavior: smooth;
     }
 
-    .skill {
-      margin-bottom: 4rem;
+    section {
+      min-height: 100vh;
+      padding: 4rem 2rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
     }
 
-    .skill-name {
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Example backgrounds per section */
+    #scene1 { background: linear-gradient(to right, #0f0c29, #302b63); }
+    #scene2 { background: linear-gradient(to right, #434343, #000000); }
+    #scene3 { background: linear-gradient(to right, #0f2027, #203a43); }
+    #scene4 { background: linear-gradient(to right, #1d4350, #a43931); }
+    #scene5 { background: linear-gradient(to right, #2b5876, #4e4376); }
+    #scene6 { background: linear-gradient(to right, #141e30, #243b55); }
+
+    h1 {
+      font-size: 2rem;
       margin-bottom: 1rem;
-      font-size: 1.2rem;
     }
 
-    .progress-wrapper {
-      position: relative;
-      width: 100%;
-    }
-
-    .progress-percent {
-      position: absolute;
-      top: -25px; /* move number above */
-      transform: translateX(-50%); /* center exactly */
-      font-size: 1rem;
-      white-space: nowrap;
-      color: #e5d8cc;
-    }
-
-    .progress-bar {
-      height: 10px;
-      background: #a37774;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: #5d7b8f;
-      border-radius: 5px 0 0 5px;
-      width: 0%;
-      transition: width 1s ease;
+    p {
+      max-width: 600px;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
 <body>
 
-  
+  <section id="scene1">
+    <h1>👋 Welcome to My Sales Portfolio</h1>
+    <p>Intro text and short bio here...</p>
+  </section>
+  <section id="scene2">
+    <h1>📌 Summary</h1>
+    <p>Concise summary of what I do...</p>
+  </section>
+  <section id="scene3">
+    <h1>💼 About Me</h1>
+    <p>Personal background and story...</p>
+  </section>
+  <section id="scene4">
+    <h1>⚙️ Sales Skills</h1>
+    <p>Key strengths and sales tools I use...</p>
+  </section>
+  <section id="scene5">
+    <h1>📈 Work Experience</h1>
+    <p>Places I’ve worked, roles I’ve held...</p>
+  </section>
+  <section id="scene6">
+    <h1>📞 Contact</h1>
+    <p>Phone, email, social links...</p>
+  </section>
 
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
