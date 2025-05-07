@@ -955,10 +955,11 @@ color: inherit;
 
     #scene3 {
         gap: 50px;
+        padding: 70px 15px 0px 15px;
     }
 
     #scene3 .right {
-        padding: 30px 20px 50px 20px;
+        padding: 20px 15px 50px 15px;
     }
 
     #scene3 .right .header {
@@ -987,5 +988,18 @@ color: inherit;
 
     #scene6 .contact-wrapper {
         margin: 40px 30px 60px 30px;
+    }
+
+    .hero .support-text {
+        font-size: clamp(1.2rem, 2.222vw, 2rem);
+    }
+}
+
+@media (max-width: 430px) {
+    .hero .center-line {
+        left: 200px;
+        top: -20px;
+        height: 1000px;
+        width: 1000px;
     }
 }
